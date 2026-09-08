@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "personal-knowledge-assistant-backend"
+version = "0.1.0"
+description = "Backend for Personal Knowledge Assistant"
+authors = ["liv-lauflove"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.100.0"
+uvicorn = "^0.23.0"
+sqlalchemy = "^2.0.0"
+alembic = "^1.11.0"
+pgvector = "^0.2.0"
+pydantic = "^2.0.0"
+pydantic-settings = "^2.0.0"
+openai = "^1.0.0"
+pymupdf = "^1.22.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.280"
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+select = ["E", "F", "I"]
