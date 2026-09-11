@@ -16,5 +16,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       // Return true if the user is authenticated
       return !!auth
     },
+    jwt: async ({ token, user }) => {
+      if (user) {
+        token.id = user.id
+      }
+      return token
+    },
+    session: async ({ session, token }) => {
+      if (token?.id) {
+        session.user.id = token.id as string
+      }
+      return session
+    },
   },
 })
