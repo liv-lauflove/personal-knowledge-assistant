@@ -1,8 +1,11 @@
 from fastapi import Depends, FastAPI
 
 from app.auth import get_current_user_id
+from app.documents import documents_router
 
 app = FastAPI(title="Personal Knowledge Assistant API")
+
+app.include_router(documents_router, prefix="/api/v1/documents", tags=["documents"])
 
 
 @app.get("/")
